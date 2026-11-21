@@ -1,1 +1,32 @@
-frontend files
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173B70"><title>CivicTrack | Community issue management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <section id="authView" class="auth-shell">
+    <div class="auth-visual"><div class="brand brand-light"><span class="brand-mark">C</span><span>CivicTrack</span></div><div class="auth-message"><span class="eyebrow light">YOUR CITY. YOUR VOICE.</span><h1>Small actions.<br><em>Meaningful change.</em></h1><p>Report civic issues, follow every update and help build a better community together.</p><div class="auth-stats"><div><b>6</b><span>Departments</span></div><div><b>24/7</b><span>Issue visibility</span></div><div><b>1 goal</b><span>Better communities</span></div></div></div><div class="auth-foot">A transparent bridge between citizens and civic departments.</div></div>
+    <div class="auth-panel"><div class="auth-top"><span class="brand"><span class="brand-mark">C</span><span>CivicTrack</span></span><button class="text-button" id="adminEntry">Administrator access ↗</button></div>
+      <div class="auth-card"><div class="eyebrow" id="authEyebrow">WELCOME TO CIVICTRACK · DEMO</div><h2 id="authTitle">Make your community better.</h2><p class="muted" id="authSubtitle">Sign in to explore the citizen experience.</p>
+        <div class="auth-tabs" id="authTabs"><button class="active" data-auth="login">Sign in</button><button data-auth="register">Create account</button></div>
+        <form id="authForm"><div id="registerFields" class="hidden">
+          <label>Full name<input name="full_name" placeholder="Your full name" minlength="2"></label>
+          <label>Phone number<input name="phone" placeholder="10-digit mobile number"></label>
+          <label>Address<input name="address" placeholder="Your address"></label>
+        </div><label>Email address<input name="email" type="email" placeholder="you@example.com" required></label><label>Password<input name="password" type="password" placeholder="At least 6 characters" minlength="6" required></label><button class="btn btn-primary btn-wide" id="authSubmit">Sign in <span>→</span></button></form>
+        <div class="auth-note" id="authNote">Connected mode: accounts and complaints are sent to your configured CivicTrack API.</div>
+        <div class="demo-credentials"><span>API connection</span><button type="button" id="checkApi">Check backend connection</button><small id="apiStatus">Not checked yet</small></div>
+      </div><div class="auth-bottom">© 2026 CivicTrack <span>Frontend preview · Sample data</span></div>
+    </div>
+  </section>
+  <section id="appView" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar"><div class="side-brand"><span class="brand-mark">C</span><span>CivicTrack</span><button id="sidebarClose" class="icon-btn mobile-only">×</button></div><div class="workspace-label">WORKSPACE</div><nav id="mainNav"></nav><div class="sidebar-bottom"><div class="help-card"><div class="help-icon">✳</div><strong>Every report matters</strong><p>Your updates help departments understand what needs attention.</p></div><button class="profile-mini" id="profileButton"><span class="avatar" id="userAvatar">U</span><span><b id="sideUserName">Citizen</b><small id="sideUserRole">Community member</small></span><span class="more">···</span></button><button class="logout-link" id="logoutButton">↪ Sign out</button></div></aside>
+    <main class="main-area"><header class="topbar"><button class="icon-btn mobile-only" id="menuButton">☰</button><div class="breadcrumbs">CivicTrack <span>/</span> <b id="breadcrumb">Overview</b></div><div class="top-actions"><span class="live-dot">Live API</span><button class="icon-btn" id="topNotifications" aria-label="Notifications">♧</button><span class="avatar small-avatar" id="topAvatar">U</span></div></header><div class="page-wrap" id="pageContent"></div></main>
+  </section>
+  <script src="config.js"></script><script src="app.js"></script>
+</body></html>
