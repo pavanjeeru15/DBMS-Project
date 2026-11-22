@@ -1,33 +1,12 @@
 import mysql.connector
 import os
-from getpass import getpass
+
 from fastapi import FastAPI, HTTPException, UploadFile, File
 import mysql.connector
 
 password = getpass("Enter MySQL root password: ")
 
-try:
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password=password,
-        database="civic_tracker"
-    )
 
-    if conn.is_connected():
-        print("MySQL Database Connected Successfully!")
-
-        cursor = conn.cursor()
-        cursor.execute("SELECT DATABASE()")
-        result = cursor.fetchone()
-
-        print("Connected Database:", result[0])
-
-        cursor.close()
-        conn.close()
-
-except mysql.connector.Error as e:
-    print("Database Connection Failed:", e)
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -51,10 +30,10 @@ app.add_middleware(
 # Database connection
 def get_db():
     conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Pavan@90187",
-        database="civic_tracker"
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
     )
     return conn
 def create_notification(conn, user_id, issue_id, message):
