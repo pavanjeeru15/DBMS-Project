@@ -4,7 +4,7 @@ import os
 from fastapi import FastAPI, HTTPException, UploadFile, File
 import mysql.connector
 
-password = getpass("Enter MySQL root password: ")
+
 
 
 from fastapi import FastAPI, HTTPException, UploadFile, File
